@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OM YOGA | Wellness & Peace</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #315b43;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            padding: 22px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            z-index: 10;
+        }
+
+        .logo {
+            color: white;
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #e1c65a;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            min-height: 650px;
+
+            background-image:
+                linear-gradient(
+                    rgba(91, 145, 108, 0.55),
+                    rgba(55, 105, 72, 0.65)
+                ),
+                url("yogalogo.jpg");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            color: white;
+
+            padding: 100px 20px 70px;
+
+            position: relative;
+        }
+
+
+        .hero-content {
+            max-width: 820px;
+        }
+
+
+        .welcome {
+            font-size: 16px;
+
+            letter-spacing: 5px;
+
+            color: #f0d66a;
+
+            font-weight: bold;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero h1 {
+
+            font-size: clamp(55px, 10vw, 95px);
+
+            letter-spacing: 8px;
+
+            margin-bottom: 10px;
+
+            font-weight: 800;
+        }
+
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+
+        .gold-line {
+
+            width: 90px;
+            height: 4px;
+
+            background: #d4af37;
+
+            margin: 25px auto;
+
+            border-radius: 20px;
+        }
+
+
+        .hero h2 {
+
+            font-size: 24px;
+
+            font-weight: normal;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero p {
+
+            max-width: 680px;
+
+            margin: auto;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            color: #f8fff9;
+        }
+
+
+        /* =========================
+           HERO BUTTON
+        ========================= */
+
+        .hero-button {
+
+            display: inline-block;
+
+            margin-top: 32px;
+
+            padding: 16px 36px;
+
+            background: #d4af37;
+
+            color: #315b43;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            border-radius: 50px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.18);
+
+            transition: 0.3s;
+        }
+
+
+        .hero-button:hover {
+
+            background: white;
+
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================
+           GENERAL SECTION
+        ========================= */
+
+        .section {
+
+            padding: 85px 7%;
+
+            text-align: center;
+        }
+
+
+        .section-title {
+
+            font-size: 38px;
+
+            color: #5a9b72;
+
+            margin-bottom: 10px;
+        }
+
+
+        .section-subtitle {
+
+            color: #888;
+
+            font-size: 16px;
+
+            margin-bottom: 45px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-box {
+
+            max-width: 950px;
+
+            margin: auto;
+
+            background: linear-gradient(
+                135deg,
+                #ffffff,
+                #f0f8f2
+            );
+
+            padding: 42px;
+
+            border-radius: 25px;
+
+            border: 1px solid #e4d18a;
+
+            box-shadow:
+                0 15px 40px rgba(
+                    90,
+                    155,
+                    114,
+                    0.12
+                );
+
+            position: relative;
+        }
+
+
+        .about-box::before {
+
+            content: "✦";
+
+            position: absolute;
+
+            top: 18px;
+            left: 25px;
+
+            color: #d4af37;
+
+            font-size: 24px;
+        }
+
+
+        .about-box::after {
+
+            content: "✦";
+
+            position: absolute;
+
+            bottom: 18px;
+            right: 25px;
+
+            color: #d4af37;
+
+            font-size: 24px;
+        }
+
+
+        .about-box p {
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
+            color: #52675a;
+        }
+
+
+        /* =========================
+           BENEFITS SECTION
+        ========================= */
+
+        .benefits {
+
+            background: #f3faf5;
+        }
+
+
+        .cards {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .card {
+
+            background: white;
+
+            padding: 35px 25px;
+
+            border-radius: 22px;
+
+            border-top: 4px solid #d4af37;
+
+            box-shadow:
+                0 10px 30px rgba(
+                    90,
+                    155,
+                    114,
+                    0.10
+                );
+
+            transition: 0.3s;
+        }
+
+
+        .card:hover {
+
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 18px 35px rgba(
+                    90,
+                    155,
+                    114,
+                    0.18
+                );
+        }
+
+
+        .icon {
+
+            font-size: 42px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .card h3 {
+
+            color: #5a9b72;
+
+            margin-bottom: 12px;
+
+            font-size: 21px;
+        }
+
+
+        .card p {
+
+            color: #707070;
+
+            line-height: 1.7;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+
+            padding: 90px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #79ad8d,
+                    #5f9f76
+                );
+
+            color: white;
+
+            text-align: center;
+        }
+
+
+        .cta h2 {
+
+            font-size: 38px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .cta p {
+
+            font-size: 17px;
+
+            color: #f4fff7;
+
+            margin-bottom: 28px;
+        }
+
+
+        .cta-button {
+
+            display: inline-block;
+
+            padding: 15px 36px;
+
+            background: #d4af37;
+
+            color: #315b43;
+
+            text-decoration: none;
+
+            border-radius: 50px;
+
+            font-weight: bold;
+
+            font-size: 17px;
+
+            transition: 0.3s;
+        }
+
+
+        .cta-button:hover {
+
+            background: white;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background: #477d5b;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            font-size: 14px;
+        }
+
+
+        footer .gold {
+
+            color: #d4af37;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+
+                padding: 18px 20px;
+            }
+
+
+            .logo {
+
+                font-size: 20px;
+            }
+
+
+            .nav-links {
+
+                display: none;
+            }
+
+
+            .hero {
+
+                min-height: 600px;
+
+                padding: 100px 20px 60px;
+            }
+
+
+            .hero h1 {
+
+                letter-spacing: 5px;
+            }
+
+
+            .hero h2 {
+
+                font-size: 20px;
+            }
+
+
+            .hero p {
+
+                font-size: 15px;
+            }
+
+
+            .section {
+
+                padding: 65px 20px;
+            }
+
+
+            .section-title {
+
+                font-size: 30px;
+            }
+
+
+            .about-box {
+
+                padding: 32px 20px;
+            }
+
+
+            .about-box p {
+
+                font-size: 16px;
+            }
+
+
+            .cards {
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .cta h2 {
+
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            OM <span>YOGA</span>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#benefits">Benefits</a>
+
+            <a href="login.html">Login</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="welcome">
+
+                WELCOME TO
+
+            </div>
+
+
+            <h1>
+
+                OM <span>YOGA</span>
+
+            </h1>
+
+
+            <div class="gold-line"></div>
+
+
+            <h2>
+
+                A Journey Towards Health & Inner Peace
+
+            </h2>
+
+
+            <p>
+
+                Discover the power of gentle movement,
+                mindful breathing and a peaceful lifestyle.
+                At OM YOGA, we believe that wellness is a
+                journey for every age.
+
+            </p>
+
+
+            <a
+                href="login.html"
+                class="hero-button"
+            >
+
+                Begin Your Journey →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT SECTION
+    ========================= -->
+
+    <section
+        class="section"
+        id="about"
+    >
+
+        <h2 class="section-title">
+
+            About OM YOGA
+
+        </h2>
+
+
+        <p class="section-subtitle">
+
+            Move better • Feel better • Live better
+
+        </p>
+
+
+        <div class="about-box">
+
+            <p>
+
+                Regular exercise is essential for maintaining
+                both physical vitality and mental well-being.
+                It enhances overall health, strengthens muscles
+                and promotes healthy blood circulation.
+
+                <br><br>
+
+                For elderly people, gentle and consistent
+                physical activity can support balance,
+                mobility and an independent lifestyle.
+
+                <br><br>
+
+                Beyond physical benefits, regular exercise can
+                encourage calmness, reduce everyday stress and
+                support better sleep.
+
+                <br><br>
+
+                Even a small amount of mindful movement every
+                day can become a meaningful step towards a
+                healthier, more active and fulfilling life.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BENEFITS
+    ========================= -->
+
+    <section
+        class="section benefits"
+        id="benefits"
+    >
+
+        <h2 class="section-title">
+
+            The Benefits
+
+        </h2>
+
+
+        <p class="section-subtitle">
+
+            Small steps can make a meaningful difference
+
+        </p>
+
+
+        <div class="cards">
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🧘
+                </div>
+
+                <h3>
+
+                    Better Mobility
+
+                </h3>
+
+                <p>
+
+                    Gentle movement can support flexibility,
+                    balance and everyday mobility.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="icon">
+                    🌿
+                </div>
+
+                <h3>
+
+                    Peaceful Mind
+
+                </h3>
+
+                <p>
+
+                    Mindful exercise can encourage relaxation
+                    and a calmer state of mind.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="card">
+
+                <div class="icon">
+                    ☀️
+                </div>
+
+                <h3>
+
+                    Healthy Lifestyle
+
+                </h3>
+
+                <p>
+
+                    Building a regular movement routine can
+                    support an active and fulfilling lifestyle.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CALL TO ACTION
+    ========================= -->
+
+    <section class="cta">
+
+        <h2>
+
+            Start Your Wellness Journey
+
+        </h2>
+
+
+        <p>
+
+            Take a small step today towards a healthier tomorrow.
+
+        </p>
+
+
+        <a
+            href="login.html"
+            class="cta-button"
+        >
+
+            Continue with Google →
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026
+            <span class="gold">
+                OM YOGA
+            </span>
+
+        </p>
+
+
+        <p>
+
+            Mollahat, Shyampur, Howrah
+
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
