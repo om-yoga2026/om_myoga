@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>OM YOGA | Dashboard</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #26352b;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 10% 15%, rgba(190, 225, 195, 0.45), transparent 30%),
+        radial-gradient(circle at 90% 85%, rgba(225, 200, 125, 0.22), transparent 30%),
+        linear-gradient(135deg, #edf8ef, #ffffff, #f5faf6);
+}
+
+/* NAVBAR */
+
+.navbar {
+    height: 70px;
+    padding: 0 6%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(70,110,80,0.12);
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #348247;
+}
+
+.logo span {
+    color: #c39a36;
+}
+
+.home-btn {
+    text-decoration: none;
+    color: #348247;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* MAIN */
+
+.container {
+    width: 92%;
+    max-width: 950px;
+    margin: 42px auto;
+}
+
+/* WELCOME */
+
+.welcome {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.om-symbol {
+    width: 68px;
+    height: 68px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #e5f3e7, #fff8df);
+
+    color: #b28a2c;
+
+    font-size: 37px;
+
+    box-shadow: 0 10px 30px rgba(60,100,70,0.14);
+}
+
+.welcome h1 {
+    margin: 18px 0 8px;
+
+    font-size: clamp(32px, 7vw, 52px);
+
+    color: #41974f;
+}
+
+.welcome h1 span {
+    color: #c49b3c;
+}
+
+.welcome p {
+    margin: 0;
+
+    color: #718078;
+
+    font-size: 17px;
+}
+
+/* PROFILE */
+
+.profile-card {
+    background: rgba(255,255,255,0.92);
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+
+    border: 1px solid rgba(70,120,80,0.10);
+
+    box-shadow:
+        0 15px 45px rgba(50,90,60,0.12);
+
+    margin-bottom: 35px;
+}
+
+.profile-photo {
+    width: 105px;
+    height: 105px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 4px solid #d5ba69;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.profile-info h2 {
+    margin: 0 0 8px;
+
+    color: #347a43;
+
+    font-size: 25px;
+}
+
+.profile-info p {
+    margin: 6px 0;
+
+    color: #68766d;
+
+    font-size: 15px;
+}
+
+.user-badge {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 7px 13px;
+
+    border-radius: 20px;
+
+    background: #edf7ee;
+
+    color: #3d884b;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+/* SECTION TITLE */
+
+.section-title {
+    text-align: center;
+
+    margin: 35px 0 20px;
+
+    color: #304438;
+
+    font-size: 26px;
+}
+
+/* SOCIAL */
+
+.social-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.social-card {
+    display: block;
+
+    text-decoration: none;
+
+    padding: 25px 15px;
+
+    border-radius: 22px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    color: #26352b;
+
+    border: 1px solid rgba(70,110,80,0.10);
+
+    box-shadow: 0 10px 30px rgba(50,90,60,0.10);
+
+    transition: 0.3s;
+}
+
+.social-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 18px 35px rgba(50,90,60,0.16);
+}
+
+.social-icon {
+    font-size: 35px;
+
+    margin-bottom: 10px;
+}
+
+.social-card h3 {
+    margin: 5px 0;
+
+    font-size: 19px;
+}
+
+.social-card p {
+    margin: 0;
+
+    color: #7b8780;
+
+    font-size: 13px;
+}
+
+/* SOCIAL TOP BORDERS */
+
+.youtube {
+    border-top: 4px solid #ff0000;
+}
+
+.facebook {
+    border-top: 4px solid #1877f2;
+}
+
+.whatsapp {
+    border-top: 4px solid #25d366;
+}
+
+/* LOGOUT */
+
+.logout-area {
+    text-align: center;
+
+    margin-top: 42px;
+}
+
+.logout-btn {
+    border: none;
+
+    padding: 13px 30px;
+
+    border-radius: 30px;
+
+    background: #f4e8e8;
+
+    color: #a13d3d;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    background: #edd6d6;
+
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+
+    padding: 30px 15px;
+
+    color: #87938b;
+
+    font-size: 13px;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .container {
+        margin-top: 30px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 28px 18px;
+    }
+
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome h1 {
+        line-height: 1.15;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        OM <span>YOGA</span>
+    </div>
+
+    <a href="index.html" class="home-btn">
+        ← Home
+    </a>
+
+</nav>
+
+
+<!-- MAIN -->
+
+<main class="container">
+
+    <!-- WELCOME -->
+
+    <section class="welcome">
+
+        <div class="om-symbol">
+            ॐ
+        </div>
+
+        <h1>
+            Welcome to <span>OM YOGA</span>
+        </h1>
+
+        <p>
+            Your personal space for health, balance & inner peace.
+        </p>
+
+    </section>
+
+
+    <!-- USER PROFILE -->
+
+    <section class="profile-card">
+
+        <img
+            id="profilePhoto"
+            class="profile-photo"
+            src=""
+            alt="Profile Photo"
+        >
+
+        <div class="profile-info">
+
+            <h2 id="userName">
+                Welcome 👋
+            </h2>
+
+            <p>
+                📧 <span id="userEmail">Loading...</span>
+            </p>
+
+            <span class="user-badge">
+                ✓ Google Account Connected
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOCIAL -->
+
+    <h2 class="section-title">
+        Connect With OM YOGA
+    </h2>
+
+    <section class="social-grid">
+
+        <a
+            href="https://youtube.com/@rameshmondal5023?si=mAPuEx_8MHbiMIJy"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card youtube"
+        >
+
+            <div class="social-icon">
+                ▶️
+            </div>
+
+            <h3>YouTube</h3>
+
+            <p>
+                Watch our yoga videos
+            </p>
+
+        </a>
+
+
+        <a
+            href="https://www.facebook.com/share/18egrJpQns/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card facebook"
+        >
+
+            <div class="social-icon">
+                📘
+            </div>
+
+            <h3>Facebook</h3>
+
+            <p>
+                Follow our Facebook page
+            </p>
+
+        </a>
+
+
+        <a
+            href="https://whatsapp.com/channel/0029Vb88CN1KLaHj9Zx4PG2d"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-card whatsapp"
+        >
+
+            <div class="social-icon">
+                💬
+            </div>
+
+            <h3>WhatsApp</h3>
+
+            <p>
+                Join our WhatsApp channel
+            </p>
+
+        </a>
+
+    </section>
+
+
+    <!-- LOGOUT -->
+
+    <div class="logout-area">
+
+        <button
+            class="logout-btn"
+            id="logoutBtn"
+        >
+            🚪 Logout
+        </button>
+
+    </div>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+    © 2026 OM YOGA • Health • Balance • Peace
+</footer>
+
+
+<!-- FIREBASE -->
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getAuth,
+    onAuthStateChanged,
+    signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+/* FIREBASE CONFIG */
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyCmpCfqe7-kVq3EHD8vS-z9T6DTD8cMVqU",
+
+    authDomain: "om-yoga-app.firebaseapp.com",
+
+    projectId: "om-yoga-app",
+
+    storageBucket: "om-yoga-app.firebasestorage.app",
+
+    messagingSenderId: "864043456085",
+
+    appId: "1:864043456085:web:8d6f930f7bca6f391766dc"
+
+};
+
+
+/* INITIALIZE FIREBASE */
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+
+/* CHECK LOGIN USER */
+
+onAuthStateChanged(auth, (user) => {
+
+    if (user) {
+
+        /* USER NAME */
+
+        document.getElementById("userName").textContent =
+            "Hello, " +
+            (user.displayName || "OM YOGA Member") +
+            " 👋";
+
+
+        /* USER EMAIL */
+
+        document.getElementById("userEmail").textContent =
+            user.email || "Email not available";
+
+
+        /* USER PHOTO */
+
+        const profilePhoto =
+            document.getElementById("profilePhoto");
+
+        if (user.photoURL) {
+
+            profilePhoto.src = user.photoURL;
+
+        } else {
+
+            profilePhoto.src =
+                "https://via.placeholder.com/105";
+
+        }
+
+    } else {
+
+        /* USER NOT LOGGED IN */
+
+        window.location.href = "login.html";
+
+    }
+
+});
+
+
+/* LOGOUT */
+
+document
+    .getElementById("logoutBtn")
+    .addEventListener("click", async () => {
+
+        try {
+
+            await signOut(auth);
+
+            window.location.href = "login.html";
+
+        } catch (error) {
+
+            console.error(error);
+
+            alert(
+                "Logout failed. Please try again."
+            );
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
