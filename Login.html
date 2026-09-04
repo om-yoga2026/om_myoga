@@ -1,100 +1,1055 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login - OM YOGA</title>
+
+<title>Login | OM YOGA</title>
 
 <style>
-body {
+
+/* =========================
+   RESET
+========================= */
+
+* {
     margin: 0;
-    font-family: Arial;
-    background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* =========================
+   BODY
+========================= */
+
+body {
+
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4fff7 0%,
+            #dcefe2 45%,
+            #f8f4df 100%
+        );
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
-    height: 100vh;
+
+    padding: 25px;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-/* Card */
-.container {
-    background: white;
-    padding: 30px;
-    width: 90%;
-    max-width: 350px;
-    border-radius: 20px;
-    box-shadow: 0px 5px 20px rgba(0,0,0,0.15);
+
+/* =========================
+   DECORATIVE BACKGROUND
+========================= */
+
+.background-decoration {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+/* Large circles */
+
+.circle {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(212,175,55,0.35);
+
+}
+
+
+.circle-one {
+
+    width: 430px;
+
+    height: 430px;
+
+    left: -210px;
+
+    top: -100px;
+
+    background:
+        rgba(143,199,162,0.15);
+}
+
+
+.circle-two {
+
+    width: 520px;
+
+    height: 520px;
+
+    right: -260px;
+
+    bottom: -160px;
+
+    background:
+        rgba(143,199,162,0.16);
+}
+
+
+.circle-three {
+
+    width: 180px;
+
+    height: 180px;
+
+    right: 8%;
+
+    top: 8%;
+
+    border: 2px solid
+        rgba(212,175,55,0.20);
+}
+
+
+/* =========================
+   SIDE YOGA DECORATIONS
+========================= */
+
+.side-left,
+.side-right {
+
+    position: absolute;
+
+    z-index: 1;
+
+    color: #5a9b72;
+
+    opacity: 0.75;
+
+}
+
+
+/* LEFT */
+
+.side-left {
+
+    left: 7%;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
     text-align: center;
+
 }
 
-/* Title */
-h2 {
-    color: #2e7d32;
+
+/* RIGHT */
+
+.side-right {
+
+    right: 7%;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    text-align: center;
+
 }
 
-/* Button */
-button {
-    margin-top: 20px;
-    padding: 14px;
+
+/* Big OM */
+
+.side-om {
+
+    font-size: 85px;
+
+    color: #d4af37;
+
+    opacity: 0.30;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* Side title */
+
+.side-title {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+    color: #477d5b;
+
+}
+
+
+/* Side subtitle */
+
+.side-text {
+
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: #688272;
+
+}
+
+
+/* Decorative leaf */
+
+.leaf {
+
+    font-size: 45px;
+
+    color: #5a9b72;
+
+    opacity: 0.35;
+
+    margin-top: 18px;
+
+}
+
+
+/* =========================
+   FLOATING GOLD DOTS
+========================= */
+
+.dot {
+
+    position: absolute;
+
+    width: 9px;
+
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #d4af37;
+
+    opacity: 0.55;
+
+}
+
+
+.dot-one {
+
+    left: 18%;
+
+    top: 25%;
+
+}
+
+
+.dot-two {
+
+    left: 11%;
+
+    bottom: 25%;
+
+}
+
+
+.dot-three {
+
+    right: 17%;
+
+    top: 30%;
+
+}
+
+
+.dot-four {
+
+    right: 12%;
+
+    bottom: 20%;
+
+}
+
+
+/* =========================
+   LOGIN CARD
+========================= */
+
+.login-card {
+
     width: 100%;
-    border: none;
+
+    max-width: 430px;
+
+    background:
+        rgba(255,255,255,0.97);
+
+    padding: 45px 35px;
+
     border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    background: #4285F4;
-    color: white;
-    transition: 0.3s;
+
+    text-align: center;
+
+    border: 1px solid
+        rgba(212,175,55,0.40);
+
+    box-shadow:
+        0 25px 70px
+        rgba(55,105,72,0.20);
+
+    position: relative;
+
+    z-index: 5;
+
+    animation:
+        cardIn 0.8s ease;
+
 }
 
-button:hover {
-    transform: scale(1.05);
-    background: #3367d6;
+
+/* Top gold-green line */
+
+.login-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 6px;
+
+    border-radius:
+        30px 30px 0 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #8fc7a2,
+            #d4af37,
+            #8fc7a2
+        );
+
 }
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: #4f9367;
+
+    margin-bottom: 5px;
+
+}
+
+
+.logo span {
+
+    color: #d4af37;
+
+}
+
+
+/* =========================
+   OM SYMBOL
+========================= */
+
+.om-symbol {
+
+    width: 78px;
+
+    height: 78px;
+
+    margin:
+        15px auto 22px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 42px;
+
+    color: #d4af37;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f5fcf7,
+            #e1f2e6
+        );
+
+    border: 2px solid
+        #e5d28a;
+
+    box-shadow:
+        0 8px 25px
+        rgba(212,175,55,0.15);
+
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+h1 {
+
+    color: #477d5b;
+
+    font-size: 29px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.gold-line {
+
+    width: 65px;
+
+    height: 4px;
+
+    background: #d4af37;
+
+    border-radius: 20px;
+
+    margin:
+        15px auto 23px;
+
+}
+
+
+.subtitle {
+
+    color: #777;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =========================
+   GOOGLE BUTTON
+========================= */
+
+.google-button {
+
+    width: 100%;
+
+    padding: 17px 20px;
+
+    border:
+        1px solid #dfe5e1;
+
+    border-radius: 16px;
+
+    background: white;
+
+    color: #315b43;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 13px;
+
+    transition:
+        0.3s ease;
+
+    box-shadow:
+        0 8px 25px
+        rgba(55,105,72,0.08);
+
+}
+
+
+.google-button:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        #d4af37;
+
+    box-shadow:
+        0 15px 30px
+        rgba(55,105,72,0.16);
+
+}
+
+
+.google-button:active {
+
+    transform:
+        scale(0.98);
+
+}
+
+
+/* Google G */
+
+.google-icon {
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #4285F4;
+
+}
+
+
+/* =========================
+   SECURITY BOX
+========================= */
+
+.security {
+
+    margin-top: 25px;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1fbf4,
+            #e7f6eb
+        );
+
+    color: #65806d;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    border:
+        1px solid
+        rgba(143,199,162,0.20);
+
+}
+
+
+/* =========================
+   BACK HOME
+========================= */
+
+.back-home {
+
+    display: inline-block;
+
+    margin-top: 27px;
+
+    color: #5a9b72;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+
+.back-home:hover {
+
+    color: #d4af37;
+
+    transform:
+        translateX(-3px);
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+    margin-top: 27px;
+
+    color: #999;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+}
+
+
+.footer span {
+
+    color: #d4af37;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes cardIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .side-left,
+    .side-right {
+
+        display: none;
+
+    }
+
+    .dot {
+
+        display: none;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    body {
+
+        padding: 15px;
+
+    }
+
+    .login-card {
+
+        padding:
+            40px 24px;
+
+        border-radius: 25px;
+
+    }
+
+    .logo {
+
+        font-size: 26px;
+
+    }
+
+    .om-symbol {
+
+        width: 70px;
+
+        height: 70px;
+
+        font-size: 38px;
+
+    }
+
+    h1 {
+
+        font-size: 25px;
+
+    }
+
+    .subtitle {
+
+        font-size: 15px;
+
+    }
+
+    .google-button {
+
+        font-size: 16px;
+
+    }
+
+}
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
 
-    <h2>Welcome to OM YOGA 🧘</h2>
-    <p>Sign in with your Google account</p>
+<!-- =========================
+     BACKGROUND DECORATION
+========================= -->
 
-    <button onclick="googleLogin()">Continue with Google</button>
+<div class="background-decoration">
+
+    <div class="circle circle-one"></div>
+
+    <div class="circle circle-two"></div>
+
+    <div class="circle circle-three"></div>
+
+    <div class="dot dot-one"></div>
+
+    <div class="dot dot-two"></div>
+
+    <div class="dot dot-three"></div>
+
+    <div class="dot dot-four"></div>
 
 </div>
 
+
+
+<!-- =========================
+     LEFT DECORATION
+========================= -->
+
+<div class="side-left">
+
+    <div class="side-om">
+        ॐ
+    </div>
+
+    <div class="side-title">
+        BREATHE
+    </div>
+
+    <div class="side-text">
+
+        Find your balance<br>
+        Find your peace
+
+    </div>
+
+    <div class="leaf">
+        ❧
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     RIGHT DECORATION
+========================= -->
+
+<div class="side-right">
+
+    <div class="side-om">
+        ॐ
+    </div>
+
+    <div class="side-title">
+        RELAX
+    </div>
+
+    <div class="side-text">
+
+        Move gently<br>
+        Live peacefully
+
+    </div>
+
+    <div class="leaf">
+        ❧
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     LOGIN CARD
+========================= -->
+
+<div class="login-card">
+
+
+    <!-- LOGO -->
+
+    <div class="logo">
+
+        OM <span>YOGA</span>
+
+    </div>
+
+
+    <!-- OM -->
+
+    <div class="om-symbol">
+
+        ॐ
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <h1>
+
+        Welcome Back
+
+    </h1>
+
+
+    <div class="gold-line"></div>
+
+
+    <p class="subtitle">
+
+        Begin your journey towards
+        <br>
+
+        health, balance & inner peace.
+
+    </p>
+
+
+    <!-- GOOGLE LOGIN -->
+
+    <button
+        class="google-button"
+        onclick="googleLogin()"
+    >
+
+        <span class="google-icon">
+
+            G
+
+        </span>
+
+        Continue with Google
+
+    </button>
+
+
+    <!-- SECURITY -->
+
+    <div class="security">
+
+        🔒 Your login is securely handled
+        by Google & Firebase.
+
+    </div>
+
+
+    <!-- BACK HOME -->
+
+    <a
+        href="index.html"
+        class="back-home"
+    >
+
+        ← Back to Home
+
+    </a>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026
+        <span>OM YOGA</span>
+
+        <br>
+
+        Mollahat, Shyampur, Howrah
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     FIREBASE
+========================= -->
+
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider } 
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+    initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+
+import {
+    getAuth,
+    signInWithPopup,
+    GoogleAuthProvider
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+
+
+/* Firebase Configuration */
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCmpCfqe7-kVq3EHD8vS-z9T6DTD8cMVqU",
-  authDomain: "om-yoga-app.firebaseapp.com",
-  projectId: "om-yoga-app",
-  storageBucket: "om-yoga-app.firebasestorage.app",
-  messagingSenderId: "864043456085",
-  appId: "1:864043456085:web:8d6f930f7bca6f391766dc"
+
+    apiKey:
+    "AIzaSyCmpCfqe7-kVq3EHD8vS-z9T6DTD8cMVqU",
+
+    authDomain:
+    "om-yoga-app.firebaseapp.com",
+
+    projectId:
+    "om-yoga-app",
+
+    storageBucket:
+    "om-yoga-app.firebasestorage.app",
+
+    messagingSenderId:
+    "864043456085",
+
+    appId:
+    "1:864043456085:web:8d6f930f7bca6f391766dc"
+
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+
+
+/* Initialize Firebase */
+
+const app =
+    initializeApp(firebaseConfig);
+
+
+const auth =
+    getAuth(app);
+
+
+
+/* Google Login */
 
 window.googleLogin = function() {
-    const provider = new GoogleAuthProvider();
 
-    signInWithPopup(auth, provider)
+    const provider =
+        new GoogleAuthProvider();
+
+
+    signInWithPopup(
+        auth,
+        provider
+    )
+
     .then((result) => {
-        alert("Login Successful ✅");
-        window.location.href = "dashboard.html";
+
+        alert(
+            "Login Successful ✅"
+        );
+
+        window.location.href =
+            "dashboard.html";
+
     })
+
     .catch((error) => {
-        alert("Login Failed ❌");
+
         console.log(error);
+
+        alert(
+            "Login Failed ❌\nPlease try again."
+        );
+
     });
-}
+
+};
+
 </script>
 
+
 </body>
+
 </html>
