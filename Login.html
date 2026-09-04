@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - OM YOGA</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card */
+.container {
+    background: white;
+    padding: 30px;
+    width: 90%;
+    max-width: 350px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Title */
+h2 {
+    color: #2e7d32;
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    padding: 14px;
+    width: 100%;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #4285F4;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: #3367d6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Welcome to OM YOGA 🧘</h2>
+    <p>Sign in with your Google account</p>
+
+    <button onclick="googleLogin()">Continue with Google</button>
+
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCmpCfqe7-kVq3EHD8vS-z9T6DTD8cMVqU",
+  authDomain: "om-yoga-app.firebaseapp.com",
+  projectId: "om-yoga-app",
+  storageBucket: "om-yoga-app.firebasestorage.app",
+  messagingSenderId: "864043456085",
+  appId: "1:864043456085:web:8d6f930f7bca6f391766dc"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+
+window.googleLogin = function() {
+    const provider = new GoogleAuthProvider();
+
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        alert("Login Successful ✅");
+        window.location.href = "dashboard.html";
+    })
+    .catch((error) => {
+        alert("Login Failed ❌");
+        console.log(error);
+    });
+}
+</script>
+
+</body>
+</html>
