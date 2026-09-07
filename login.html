@@ -952,7 +952,7 @@ h1 {
 
 
 <!-- =========================
-     FIREBASE
+     FIREBASE + FIRESTORE
 ========================= -->
 
 <script type="module">
@@ -973,13 +973,23 @@ from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
+import {
+    getFirestore,
+    doc,
+    setDoc,
+    serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
 
 /* Firebase Configuration */
 
 const firebaseConfig = {
 
     apiKey:
-    "AIzaSyCmpCfqe7-kVq3EHD8vS-z9T6DTD8cMVqU",
+    "AIzaSyCmpCfqe7-kvQ3EHD8vS-z9T6DTD8cMVqU",
 
     authDomain:
     "om-yoga-app.firebaseapp.com",
@@ -1010,32 +1020,87 @@ const auth =
     getAuth(app);
 
 
+const db =
+    getFirestore(app);
+
+
 
 /* Google Login */
 
-window.googleLogin = function() {
+window.googleLogin = async function() {
 
     const provider =
         new GoogleAuthProvider();
 
 
-    signInWithPopup(
-        auth,
-        provider
-    )
+    try {
 
-    .then((result) => {
+        const result =
+            await signInWithPopup(
+                auth,
+                provider
+            );
+
+
+        const user =
+            result.user;
+
+
+
+        /* =========================
+           SAVE USER TO FIRESTORE
+        ========================= */
+
+        await setDoc(
+
+            doc(
+                db,
+                "users",
+                user.uid
+            ),
+
+            {
+
+                uid:
+                    user.uid,
+
+                name:
+                    user.displayName || "",
+
+                email:
+                    user.email || "",
+
+                photoURL:
+                    user.photoURL || "",
+
+                lastLogin:
+                    serverTimestamp()
+
+            },
+
+            {
+
+                merge: true
+
+            }
+
+        );
+
+
+        /* Login successful */
 
         alert(
             "Login Successful ✅"
         );
 
+
         window.location.href =
             "dashboard.html";
 
-    })
 
-    .catch((error) => {
+    }
+
+    catch (error) {
 
         console.log(error);
 
@@ -1043,7 +1108,7 @@ window.googleLogin = function() {
             "Login Failed ❌\nPlease try again."
         );
 
-    });
+    }
 
 };
 
