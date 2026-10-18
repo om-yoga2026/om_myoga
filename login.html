@@ -78,8 +78,6 @@ body {
 }
 
 
-/* Large circles */
-
 .circle {
 
     position: absolute;
@@ -155,8 +153,6 @@ body {
 }
 
 
-/* LEFT */
-
 .side-left {
 
     left: 7%;
@@ -167,11 +163,8 @@ body {
         translateY(-50%);
 
     text-align: center;
-
 }
 
-
-/* RIGHT */
 
 .side-right {
 
@@ -183,11 +176,8 @@ body {
         translateY(-50%);
 
     text-align: center;
-
 }
 
-
-/* Big OM */
 
 .side-om {
 
@@ -198,11 +188,8 @@ body {
     opacity: 0.30;
 
     margin-bottom: 15px;
-
 }
 
-
-/* Side title */
 
 .side-title {
 
@@ -213,11 +200,8 @@ body {
     letter-spacing: 4px;
 
     color: #477d5b;
-
 }
 
-
-/* Side subtitle */
 
 .side-text {
 
@@ -228,11 +212,8 @@ body {
     line-height: 1.7;
 
     color: #688272;
-
 }
 
-
-/* Decorative leaf */
 
 .leaf {
 
@@ -243,7 +224,6 @@ body {
     opacity: 0.35;
 
     margin-top: 18px;
-
 }
 
 
@@ -264,7 +244,6 @@ body {
     background: #d4af37;
 
     opacity: 0.55;
-
 }
 
 
@@ -273,7 +252,6 @@ body {
     left: 18%;
 
     top: 25%;
-
 }
 
 
@@ -282,7 +260,6 @@ body {
     left: 11%;
 
     bottom: 25%;
-
 }
 
 
@@ -291,7 +268,6 @@ body {
     right: 17%;
 
     top: 30%;
-
 }
 
 
@@ -300,7 +276,6 @@ body {
     right: 12%;
 
     bottom: 20%;
-
 }
 
 
@@ -336,11 +311,8 @@ body {
 
     animation:
         cardIn 0.8s ease;
-
 }
 
-
-/* Top gold-green line */
 
 .login-card::before {
 
@@ -366,7 +338,6 @@ body {
             #d4af37,
             #8fc7a2
         );
-
 }
 
 
@@ -385,14 +356,12 @@ body {
     color: #4f9367;
 
     margin-bottom: 5px;
-
 }
 
 
 .logo span {
 
     color: #d4af37;
-
 }
 
 
@@ -434,7 +403,6 @@ body {
     box-shadow:
         0 8px 25px
         rgba(212,175,55,0.15);
-
 }
 
 
@@ -449,7 +417,6 @@ h1 {
     font-size: 29px;
 
     margin-bottom: 12px;
-
 }
 
 
@@ -465,7 +432,6 @@ h1 {
 
     margin:
         15px auto 23px;
-
 }
 
 
@@ -478,7 +444,6 @@ h1 {
     line-height: 1.7;
 
     margin-bottom: 30px;
-
 }
 
 
@@ -521,7 +486,6 @@ h1 {
     box-shadow:
         0 8px 25px
         rgba(55,105,72,0.08);
-
 }
 
 
@@ -536,7 +500,6 @@ h1 {
     box-shadow:
         0 15px 30px
         rgba(55,105,72,0.16);
-
 }
 
 
@@ -544,7 +507,6 @@ h1 {
 
     transform:
         scale(0.98);
-
 }
 
 
@@ -557,7 +519,6 @@ h1 {
     font-weight: bold;
 
     color: #4285F4;
-
 }
 
 
@@ -589,7 +550,6 @@ h1 {
     border:
         1px solid
         rgba(143,199,162,0.20);
-
 }
 
 
@@ -612,7 +572,6 @@ h1 {
     font-weight: bold;
 
     transition: 0.3s;
-
 }
 
 
@@ -622,7 +581,6 @@ h1 {
 
     transform:
         translateX(-3px);
-
 }
 
 
@@ -639,7 +597,6 @@ h1 {
     font-size: 12px;
 
     line-height: 1.7;
-
 }
 
 
@@ -648,7 +605,6 @@ h1 {
     color: #d4af37;
 
     font-weight: bold;
-
 }
 
 
@@ -787,7 +743,6 @@ h1 {
 </div>
 
 
-
 <!-- =========================
      LEFT DECORATION
 ========================= -->
@@ -814,7 +769,6 @@ h1 {
     </div>
 
 </div>
-
 
 
 <!-- =========================
@@ -845,15 +799,12 @@ h1 {
 </div>
 
 
-
 <!-- =========================
      LOGIN CARD
 ========================= -->
 
 <div class="login-card">
 
-
-    <!-- LOGO -->
 
     <div class="logo">
 
@@ -862,16 +813,12 @@ h1 {
     </div>
 
 
-    <!-- OM -->
-
     <div class="om-symbol">
 
         ॐ
 
     </div>
 
-
-    <!-- TITLE -->
 
     <h1>
 
@@ -950,17 +897,15 @@ h1 {
 </div>
 
 
-
 <!-- =========================
-     FIREBASE + FIRESTORE
+     FIREBASE
 ========================= -->
 
 <script type="module">
 
 import {
     initializeApp
-}
-from
+} from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
@@ -968,23 +913,13 @@ import {
     getAuth,
     signInWithPopup,
     GoogleAuthProvider
-}
-from
+} from
 "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
-import {
-    getFirestore,
-    doc,
-    setDoc,
-    serverTimestamp
-}
-from
-"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-
-
-/* Firebase Configuration */
+/* =========================
+   FIREBASE CONFIG
+========================= */
 
 const firebaseConfig = {
 
@@ -1009,8 +944,9 @@ const firebaseConfig = {
 };
 
 
-
-/* Initialize Firebase */
+/* =========================
+   INITIALIZE FIREBASE
+========================= */
 
 const app =
     initializeApp(firebaseConfig);
@@ -1020,12 +956,9 @@ const auth =
     getAuth(app);
 
 
-const db =
-    getFirestore(app);
-
-
-
-/* Google Login */
+/* =========================
+   GOOGLE LOGIN
+========================= */
 
 window.googleLogin = async function() {
 
@@ -1035,59 +968,11 @@ window.googleLogin = async function() {
 
     try {
 
-        const result =
-            await signInWithPopup(
-                auth,
-                provider
-            );
-
-
-        const user =
-            result.user;
-
-
-
-        /* =========================
-           SAVE USER TO FIRESTORE
-        ========================= */
-
-        await setDoc(
-
-            doc(
-                db,
-                "users",
-                user.uid
-            ),
-
-            {
-
-                uid:
-                    user.uid,
-
-                name:
-                    user.displayName || "",
-
-                email:
-                    user.email || "",
-
-                photoURL:
-                    user.photoURL || "",
-
-                lastLogin:
-                    serverTimestamp()
-
-            },
-
-            {
-
-                merge: true
-
-            }
-
+        await signInWithPopup(
+            auth,
+            provider
         );
 
-
-        /* Login successful */
 
         alert(
             "Login Successful ✅"
@@ -1102,7 +987,11 @@ window.googleLogin = async function() {
 
     catch (error) {
 
-        console.log(error);
+        console.log(
+            "Google Login Error:",
+            error
+        );
+
 
         alert(
             "Login Failed ❌\nPlease try again."
